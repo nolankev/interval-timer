@@ -50,7 +50,7 @@
             this.btnStart.Location = new System.Drawing.Point(401, 84);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
-            this.btnStart.TabIndex = 3;
+            this.btnStart.TabIndex = 5;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
@@ -60,7 +60,7 @@
             this.btnStop.Location = new System.Drawing.Point(504, 84);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(75, 23);
-            this.btnStop.TabIndex = 4;
+            this.btnStop.TabIndex = 6;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = true;
             // 
@@ -148,22 +148,24 @@
             this.lblClock.BackColor = System.Drawing.SystemColors.Window;
             this.lblClock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblClock.Font = new System.Drawing.Font("Segoe UI", 200F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblClock.Location = new System.Drawing.Point(12, 236);
+            this.lblClock.Location = new System.Drawing.Point(77, 236);
             this.lblClock.Name = "lblClock";
-            this.lblClock.Size = new System.Drawing.Size(1131, 357);
+            this.lblClock.Size = new System.Drawing.Size(987, 357);
             this.lblClock.TabIndex = 11;
-            this.lblClock.Text = "00:00:00";
+            this.lblClock.Text = "00:00.0";
             // 
             // rdoTenths
             // 
             this.rdoTenths.AutoSize = true;
+            this.rdoTenths.Checked = true;
             this.rdoTenths.Location = new System.Drawing.Point(124, 72);
             this.rdoTenths.Name = "rdoTenths";
             this.rdoTenths.Size = new System.Drawing.Size(59, 19);
-            this.rdoTenths.TabIndex = 12;
+            this.rdoTenths.TabIndex = 3;
             this.rdoTenths.TabStop = true;
             this.rdoTenths.Text = "Tenths";
             this.rdoTenths.UseVisualStyleBackColor = true;
+            this.rdoTenths.CheckedChanged += new System.EventHandler(this.rdoTenths_CheckedChanged);
             // 
             // rdoHundredths
             // 
@@ -171,8 +173,7 @@
             this.rdoHundredths.Location = new System.Drawing.Point(124, 88);
             this.rdoHundredths.Name = "rdoHundredths";
             this.rdoHundredths.Size = new System.Drawing.Size(88, 19);
-            this.rdoHundredths.TabIndex = 13;
-            this.rdoHundredths.TabStop = true;
+            this.rdoHundredths.TabIndex = 4;
             this.rdoHundredths.Text = "Hundredths";
             this.rdoHundredths.UseVisualStyleBackColor = true;
             // 
@@ -189,7 +190,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1157, 602);
+            this.ClientSize = new System.Drawing.Size(1263, 602);
             this.Controls.Add(this.lblSecondDisplay);
             this.Controls.Add(this.rdoHundredths);
             this.Controls.Add(this.rdoTenths);
