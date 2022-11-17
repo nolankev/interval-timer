@@ -38,13 +38,16 @@
             this.lblnudMins = new System.Windows.Forms.Label();
             this.lblRepnum = new System.Windows.Forms.Label();
             this.lblClock = new System.Windows.Forms.Label();
+            this.rdoTenths = new System.Windows.Forms.RadioButton();
+            this.rdoHundredths = new System.Windows.Forms.RadioButton();
+            this.lblSecondDisplay = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudMins)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSecs)).BeginInit();
             this.SuspendLayout();
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(333, 45);
+            this.btnStart.Location = new System.Drawing.Point(401, 84);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 3;
@@ -54,7 +57,7 @@
             // 
             // btnStop
             // 
-            this.btnStop.Location = new System.Drawing.Point(450, 45);
+            this.btnStop.Location = new System.Drawing.Point(504, 84);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(75, 23);
             this.btnStop.TabIndex = 4;
@@ -64,7 +67,7 @@
             // lblRep
             // 
             this.lblRep.AutoSize = true;
-            this.lblRep.Location = new System.Drawing.Point(63, 99);
+            this.lblRep.Location = new System.Drawing.Point(62, 135);
             this.lblRep.Name = "lblRep";
             this.lblRep.Size = new System.Drawing.Size(30, 15);
             this.lblRep.TabIndex = 2;
@@ -72,7 +75,7 @@
             // 
             // nudMins
             // 
-            this.nudMins.Location = new System.Drawing.Point(124, 45);
+            this.nudMins.Location = new System.Drawing.Point(124, 29);
             this.nudMins.Maximum = new decimal(new int[] {
             59,
             0,
@@ -89,7 +92,7 @@
             // 
             // nudSecs
             // 
-            this.nudSecs.Location = new System.Drawing.Point(210, 45);
+            this.nudSecs.Location = new System.Drawing.Point(210, 29);
             this.nudSecs.Maximum = new decimal(new int[] {
             59,
             0,
@@ -102,7 +105,7 @@
             // lblSpecify
             // 
             this.lblSpecify.AutoSize = true;
-            this.lblSpecify.Location = new System.Drawing.Point(32, 52);
+            this.lblSpecify.Location = new System.Drawing.Point(32, 36);
             this.lblSpecify.Name = "lblSpecify";
             this.lblSpecify.Size = new System.Drawing.Size(78, 15);
             this.lblSpecify.TabIndex = 7;
@@ -112,7 +115,7 @@
             // lblNudSecs
             // 
             this.lblNudSecs.AutoSize = true;
-            this.lblNudSecs.Location = new System.Drawing.Point(210, 25);
+            this.lblNudSecs.Location = new System.Drawing.Point(210, 9);
             this.lblNudSecs.Name = "lblNudSecs";
             this.lblNudSecs.Size = new System.Drawing.Size(51, 15);
             this.lblNudSecs.TabIndex = 8;
@@ -121,7 +124,7 @@
             // lblnudMins
             // 
             this.lblnudMins.AutoSize = true;
-            this.lblnudMins.Location = new System.Drawing.Point(122, 25);
+            this.lblnudMins.Location = new System.Drawing.Point(122, 9);
             this.lblnudMins.Name = "lblnudMins";
             this.lblnudMins.Size = new System.Drawing.Size(50, 15);
             this.lblnudMins.TabIndex = 9;
@@ -133,7 +136,7 @@
             this.lblRepnum.BackColor = System.Drawing.SystemColors.Window;
             this.lblRepnum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblRepnum.Font = new System.Drawing.Font("Segoe UI", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblRepnum.Location = new System.Drawing.Point(122, 90);
+            this.lblRepnum.Location = new System.Drawing.Point(122, 135);
             this.lblRepnum.Name = "lblRepnum";
             this.lblRepnum.Size = new System.Drawing.Size(76, 91);
             this.lblRepnum.TabIndex = 10;
@@ -145,17 +148,51 @@
             this.lblClock.BackColor = System.Drawing.SystemColors.Window;
             this.lblClock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblClock.Font = new System.Drawing.Font("Segoe UI", 200F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblClock.Location = new System.Drawing.Point(12, 197);
+            this.lblClock.Location = new System.Drawing.Point(12, 236);
             this.lblClock.Name = "lblClock";
             this.lblClock.Size = new System.Drawing.Size(1131, 357);
             this.lblClock.TabIndex = 11;
             this.lblClock.Text = "00:00:00";
+            // 
+            // rdoTenths
+            // 
+            this.rdoTenths.AutoSize = true;
+            this.rdoTenths.Location = new System.Drawing.Point(124, 72);
+            this.rdoTenths.Name = "rdoTenths";
+            this.rdoTenths.Size = new System.Drawing.Size(59, 19);
+            this.rdoTenths.TabIndex = 12;
+            this.rdoTenths.TabStop = true;
+            this.rdoTenths.Text = "Tenths";
+            this.rdoTenths.UseVisualStyleBackColor = true;
+            // 
+            // rdoHundredths
+            // 
+            this.rdoHundredths.AutoSize = true;
+            this.rdoHundredths.Location = new System.Drawing.Point(124, 88);
+            this.rdoHundredths.Name = "rdoHundredths";
+            this.rdoHundredths.Size = new System.Drawing.Size(88, 19);
+            this.rdoHundredths.TabIndex = 13;
+            this.rdoHundredths.TabStop = true;
+            this.rdoHundredths.Text = "Hundredths";
+            this.rdoHundredths.UseVisualStyleBackColor = true;
+            // 
+            // lblSecondDisplay
+            // 
+            this.lblSecondDisplay.AutoSize = true;
+            this.lblSecondDisplay.Location = new System.Drawing.Point(16, 76);
+            this.lblSecondDisplay.Name = "lblSecondDisplay";
+            this.lblSecondDisplay.Size = new System.Drawing.Size(94, 15);
+            this.lblSecondDisplay.TabIndex = 14;
+            this.lblSecondDisplay.Text = "Display seconds:";
             // 
             // IntervalTimer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1157, 602);
+            this.Controls.Add(this.lblSecondDisplay);
+            this.Controls.Add(this.rdoHundredths);
+            this.Controls.Add(this.rdoTenths);
             this.Controls.Add(this.lblClock);
             this.Controls.Add(this.lblRepnum);
             this.Controls.Add(this.lblnudMins);
@@ -187,5 +224,8 @@
         private Label lblnudMins;
         private Label lblRepnum;
         private Label lblClock;
+        private RadioButton rdoTenths;
+        private RadioButton rdoHundredths;
+        private Label lblSecondDisplay;
     }
 }
