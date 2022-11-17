@@ -4,9 +4,11 @@ namespace IntervalTimer
 {
     public partial class IntervalTimer : Form
     {
-
+        // Declarations
         Stopwatch sw = new Stopwatch();
+        System.Windows.Forms.Timer tmr = new System.Windows.Forms.Timer();
         string elapsedTime = "";
+
 
         public IntervalTimer()
         {
@@ -39,9 +41,15 @@ namespace IntervalTimer
             rdoTenths.Enabled = false;
             // btnStart.Enabled = false; //uncomment this once Timer sorted
 
-            // Start timing
+            // Start timer and stopwatch
+            tmr.Interval = 5 * 1000; // s*1000 milliseconds
+            tmr.Tick += new System.EventHandler(TimerEventProcessor);
+            tmr.Start();
             sw.Start();
+        }
 
+        private void TimerEventProcessor(Object sender, EventArgs e)
+        {
             TimeSpan ts = sw.Elapsed;
 
             if (rdoTenths.Checked)
@@ -113,9 +121,5 @@ namespace IntervalTimer
         {
             Close();
         }
-        /*private void SetCancelButton(Button btnClose)
-        {
-            CancelButton = btnClose;
-        }*/
     }
 }
