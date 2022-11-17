@@ -22,6 +22,7 @@ namespace IntervalTimer
             }
 
             lblClock.Text = elapsedTime;
+            CancelButton = btnClose;
         }
 
         private void lblSpecify_Click(object sender, EventArgs e)
@@ -107,5 +108,14 @@ namespace IntervalTimer
             lblRepnum.Text = "0";
             lblClock.Text = "00:00.0";
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        /*private void SetCancelButton(Button btnClose)
+        {
+            CancelButton = btnClose;
+        }*/
     }
 }
