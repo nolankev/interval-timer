@@ -39,11 +39,21 @@ namespace IntervalTimer
             nudSecs.Enabled = false;
             rdoHundredths.Enabled = false;
             rdoTenths.Enabled = false;
-            // btnStart.Enabled = false; //uncomment this once Timer sorted
+            btnStart.Enabled = false;
 
-            // Start timer and stopwatch
-            tmr.Interval = 5 * 1000; // s*1000 milliseconds
+            // Set timer interval (s*1000 milliseconds) and identify timer event handler
+            if (rdoTenths.Checked)
+            {
+                tmr.Interval = 100;
+            }
+            else if (rdoHundredths.Checked)
+            {
+                tmr.Interval = 10;
+            }
             tmr.Tick += new System.EventHandler(TimerEventProcessor);
+            Thread.Sleep(3000);
+
+            // BEEP here!
             tmr.Start();
             sw.Start();
         }
