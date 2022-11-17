@@ -1,8 +1,8 @@
 namespace IntervalTimer
 {
-    public partial class Form1 : Form
+    public partial class IntervalTimer : Form
     {
-        public Form1()
+        public IntervalTimer()
         {
             InitializeComponent();
         }
