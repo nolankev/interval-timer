@@ -6,5 +6,10 @@ namespace IntervalTimer
         {
             InitializeComponent();
         }
+
+        private void lblSpecify_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
