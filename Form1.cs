@@ -6,6 +6,7 @@ namespace IntervalTimer
     {
 
         Stopwatch sw = new Stopwatch();
+        string elapsedTime = "";
 
         public IntervalTimer()
         {
@@ -13,12 +14,14 @@ namespace IntervalTimer
 
             if (rdoTenths.Checked)
             {
-                lblClock.Text = "00:00.0";
+                elapsedTime = "00:00.0";
             }
             else if (rdoHundredths.Checked)
             {
-                lblClock.Text = "00:00.00";
+                elapsedTime = "00:00.00";
             }
+
+            lblClock.Text = elapsedTime;
         }
 
         private void lblSpecify_Click(object sender, EventArgs e)
@@ -33,16 +36,12 @@ namespace IntervalTimer
             nudSecs.Enabled = false;
             rdoHundredths.Enabled = false;
             rdoTenths.Enabled = false;
-
+            // btnStart.Enabled = false; //uncomment this once Timer sorted
 
             // Start timing
             sw.Start();
 
             TimeSpan ts = sw.Elapsed;
-            string elapsedTime = String.Format("{0:00}:{1:00}.{2:0}",
-                    ts.Minutes,
-                    ts.Seconds,
-                    ts.Milliseconds / 100);
 
             if (rdoTenths.Checked)
             {
@@ -59,8 +58,6 @@ namespace IntervalTimer
                     ts.Milliseconds / 10);
             }
             
-
-            //lblClock.Text = sw.Elapsed.ToString();
             lblClock.Text = elapsedTime;
         }
 
@@ -74,6 +71,41 @@ namespace IntervalTimer
             {
                 lblClock.Text = "00:00.00";
             }
+        }
+
+        private void rdoHundredths_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoHundredths.Checked)
+            {
+                lblClock.Text = "00:00.00";
+            }
+            else if (!rdoHundredths.Checked)
+            {
+                lblClock.Text = "00:00.0";
+            }
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            sw.Stop();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            sw.Reset(); 
+            
+            nudMins.Enabled = true;
+            nudSecs.Enabled = true;
+            rdoHundredths.Enabled = true;
+            rdoTenths.Enabled = true;
+            btnStart.Enabled = true;
+            
+            rdoTenths.Checked = true;
+
+            nudMins.Value = 3;
+            nudSecs.Value = 0;
+            lblRepnum.Text = "0";
+            lblClock.Text = "00:00.0";
         }
     }
 }

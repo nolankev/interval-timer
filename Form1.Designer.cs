@@ -41,6 +41,8 @@
             this.rdoTenths = new System.Windows.Forms.RadioButton();
             this.rdoHundredths = new System.Windows.Forms.RadioButton();
             this.lblSecondDisplay = new System.Windows.Forms.Label();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudMins)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSecs)).BeginInit();
             this.SuspendLayout();
@@ -57,12 +59,13 @@
             // 
             // btnStop
             // 
-            this.btnStop.Location = new System.Drawing.Point(504, 84);
+            this.btnStop.Location = new System.Drawing.Point(498, 84);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(75, 23);
             this.btnStop.TabIndex = 6;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // lblRep
             // 
@@ -176,6 +179,7 @@
             this.rdoHundredths.TabIndex = 4;
             this.rdoHundredths.Text = "Hundredths";
             this.rdoHundredths.UseVisualStyleBackColor = true;
+            this.rdoHundredths.CheckedChanged += new System.EventHandler(this.rdoHundredths_CheckedChanged);
             // 
             // lblSecondDisplay
             // 
@@ -186,11 +190,32 @@
             this.lblSecondDisplay.TabIndex = 14;
             this.lblSecondDisplay.Text = "Display seconds:";
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(597, 84);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 7;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(697, 84);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 8;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            // 
             // IntervalTimer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1263, 602);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.lblSecondDisplay);
             this.Controls.Add(this.rdoHundredths);
             this.Controls.Add(this.rdoTenths);
@@ -228,5 +253,7 @@
         private RadioButton rdoTenths;
         private RadioButton rdoHundredths;
         private Label lblSecondDisplay;
+        private Button btnReset;
+        private Button btnClose;
     }
 }
