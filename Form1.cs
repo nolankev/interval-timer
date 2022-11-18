@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using System.Media;
+
 
 namespace IntervalTimer
 {
@@ -8,7 +10,6 @@ namespace IntervalTimer
         Stopwatch sw = new Stopwatch();
         System.Windows.Forms.Timer tmrClock = new System.Windows.Forms.Timer();
         System.Windows.Forms.Timer tmrRepnum = new System.Windows.Forms.Timer();
-        System.Windows.Forms.Timer tmrBeeper = new System.Windows.Forms.Timer();
         string elapsedTime = "";
         double totalRepDuration, totalSeconds, totalSeconds_mod;
         double m, s, millis;
@@ -61,34 +62,26 @@ namespace IntervalTimer
             tmrClock.Tick += new System.EventHandler(ClockTimerEventProcessor);
             
             // Repnum refresh timer
-            tmrRepnum.Interval = ((int)totalRepDuration);
+            tmrRepnum.Interval = 1000*((int)totalRepDuration);
             tmrRepnum.Tick += new System.EventHandler(RepnumTimerEventProcessor);
-            
-            // Beeper refresh timer
-            tmrBeeper.Interval = ((int)totalRepDuration);
-            tmrBeeper.Tick += new System.EventHandler(BeeperTimerEventProcessor);
 
             // Actions: wait, start timers, BEEP, start watch
             Thread.Sleep(3000);
+            Console.Beep();
             tmrClock.Start();
             tmrRepnum.Start();
-            tmrBeeper.Start();
             sw.Start();
-        }
-
-
-        private void BeeperTimerEventProcessor(Object sender, EventArgs e) 
-        {
-            // Make Beep sound
         }
 
 
         private void RepnumTimerEventProcessor(Object sender, EventArgs e)
         {
-            TimeSpan ts = sw.Elapsed;
-            totalSeconds = ts.TotalSeconds;
+            // Beep 
+            Console.Beep();
 
             // Rep count
+            TimeSpan ts = sw.Elapsed;
+            totalSeconds = ts.TotalSeconds;
             rc = Math.Floor(totalSeconds / totalRepDuration) + 1;
             lblRepnum.Text = rc.ToString();
         }
