@@ -8,6 +8,7 @@ namespace IntervalTimer
         Stopwatch sw = new Stopwatch();
         System.Windows.Forms.Timer tmrClock = new System.Windows.Forms.Timer();
         System.Windows.Forms.Timer tmrRepnum = new System.Windows.Forms.Timer();
+        System.Windows.Forms.Timer tmrBeeper = new System.Windows.Forms.Timer();
         string elapsedTime = "";
         double totalRepDuration, totalSeconds, totalSeconds_mod;
         double m, s, millis;
@@ -62,14 +63,25 @@ namespace IntervalTimer
             // Repnum refresh timer
             tmrRepnum.Interval = ((int)totalRepDuration);
             tmrRepnum.Tick += new System.EventHandler(RepnumTimerEventProcessor);
+            
+            // Beeper refresh timer
+            tmrBeeper.Interval = ((int)totalRepDuration);
+            tmrBeeper.Tick += new System.EventHandler(BeeperTimerEventProcessor);
 
             // Actions: wait, start timers, BEEP, start watch
             Thread.Sleep(3000);
-            // BEEP here!
             tmrClock.Start();
             tmrRepnum.Start();
+            tmrBeeper.Start();
             sw.Start();
         }
+
+
+        private void BeeperTimerEventProcessor(Object sender, EventArgs e) 
+        {
+            // Make Beep sound
+        }
+
 
         private void RepnumTimerEventProcessor(Object sender, EventArgs e)
         {
