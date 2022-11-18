@@ -8,6 +8,10 @@ namespace IntervalTimer
         Stopwatch sw = new Stopwatch();
         System.Windows.Forms.Timer tmr = new System.Windows.Forms.Timer();
         string elapsedTime = "";
+        double totalRepDuration;
+        double totalSeconds;
+        double totalSeconds_mod;
+        double m, s, millis;
 
 
         public IntervalTimer()
@@ -34,6 +38,9 @@ namespace IntervalTimer
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            // Get inputs
+            totalRepDuration = decimal.ToDouble((60*nudMins.Value) + nudSecs.Value);
+
             // Disable controls to prevent changes
             nudMins.Enabled = false;
             nudSecs.Enabled = false;
@@ -62,19 +69,27 @@ namespace IntervalTimer
         {
             TimeSpan ts = sw.Elapsed;
 
+            totalSeconds = ts.TotalSeconds;
+            totalSeconds_mod = totalSeconds % totalRepDuration;
+            m = Math.Floor(totalSeconds_mod / 60);
+            s = Math.Floor(totalSeconds_mod % 60);
+            millis = (totalSeconds_mod % 60) - s;
+
             if (rdoTenths.Checked)
             {
+                millis = Math.Round(10*millis);
                 elapsedTime = String.Format("{0:00}:{1:00}.{2:0}",
-                    ts.Minutes,
-                    ts.Seconds,
-                    ts.Milliseconds / 100);
+                    m.ToString().PadLeft(2, '0'),
+                    s.ToString().PadLeft(2, '0'),
+                    millis.ToString().Substring(0, 1));
             }
             else if (rdoHundredths.Checked)
             {
+                millis = Math.Round(100 * millis);
                 elapsedTime = String.Format("{0:00}:{1:00}.{2:00}",
-                    ts.Minutes,
-                    ts.Seconds,
-                    ts.Milliseconds / 10);
+                    m.ToString().PadLeft(2, '0'),
+                    s.ToString().PadLeft(2, '0'),
+                    millis.ToString().PadLeft(2, '0').Substring(0, 2));
             }
             
             lblClock.Text = elapsedTime;
