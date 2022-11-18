@@ -67,7 +67,8 @@ namespace IntervalTimer
 
             // Actions: wait, start timers, BEEP, start watch
             Thread.Sleep(3000);
-            Console.Beep();
+            //Console.Beep();
+            //System.Media.SystemSounds.Beep.Play();
             tmrClock.Start();
             tmrRepnum.Start();
             sw.Start();
@@ -76,13 +77,16 @@ namespace IntervalTimer
 
         private void RepnumTimerEventProcessor(Object sender, EventArgs e)
         {
-            // Beep 
-            Console.Beep();
+            // Beep
+            // Starts beep on background thread
+            Thread beepThread = new Thread(new ThreadStart(PlayBeep));
+            beepThread.IsBackground = true;
+            beepThread.Start();
+            /*Console.Beep();*/
 
             // Rep count
             TimeSpan ts = sw.Elapsed;
-            totalSeconds = ts.TotalSeconds;
-            rc = Math.Floor(totalSeconds / totalRepDuration) + 1;
+            rc = Math.Floor(ts.TotalSeconds / totalRepDuration) + 1;
             lblRepnum.Text = rc.ToString();
         }
 
@@ -91,7 +95,22 @@ namespace IntervalTimer
         {
             TimeSpan ts = sw.Elapsed;
 
-            totalSeconds = ts.TotalSeconds;
+            if (ts.TotalSeconds < totalRepDuration)
+            {
+                elapsedTime = String.Format("{0:00}:{1:00}.{2:0}",
+                    ts.Minutes,
+                    ts.Seconds,
+                    ts.Milliseconds / 100);
+                lblClock.Text = elapsedTime;
+            }
+            else
+            {
+                //Console.Beep();
+                sw.Restart();
+                lblClock.Text = "00:00.0";
+            }
+
+            /*totalSeconds = ts.TotalSeconds;
             totalSeconds_mod = totalSeconds % totalRepDuration;
             m = Math.Floor(totalSeconds_mod / 60);
             s = Math.Floor(totalSeconds_mod % 60);
@@ -114,7 +133,7 @@ namespace IntervalTimer
                     millis.ToString().PadLeft(2, '0').Substring(0, 2));
             }
             
-            lblClock.Text = elapsedTime;
+            lblClock.Text = elapsedTime;*/
         }
 
         private void rdoTenths_CheckedChanged(object sender, EventArgs e)
@@ -169,6 +188,12 @@ namespace IntervalTimer
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void PlayBeep()
+        {
+            // Play 1000 Hz for 1 second
+            Console.Beep(1000, 1500);
         }
     }
 }
