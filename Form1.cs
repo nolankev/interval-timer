@@ -6,12 +6,12 @@ namespace IntervalTimer
     {
         // Declarations
         Stopwatch sw = new Stopwatch();
-        System.Windows.Forms.Timer tmr = new System.Windows.Forms.Timer();
+        System.Windows.Forms.Timer tmrClock = new System.Windows.Forms.Timer();
+        System.Windows.Forms.Timer tmrRepnum = new System.Windows.Forms.Timer();
         string elapsedTime = "";
-        double totalRepDuration;
-        double totalSeconds;
-        double totalSeconds_mod;
+        double totalRepDuration, totalSeconds, totalSeconds_mod;
         double m, s, millis;
+        double rc;
 
 
         public IntervalTimer()
@@ -48,24 +48,41 @@ namespace IntervalTimer
             rdoTenths.Enabled = false;
             btnStart.Enabled = false;
 
-            // Set timer interval (s*1000 milliseconds) and identify timer event handler
+            // Clock refresh timer: Set interval (s*1000 milliseconds) and identify timer event handler
             if (rdoTenths.Checked)
             {
-                tmr.Interval = 100;
+                tmrClock.Interval = 100;
             }
             else if (rdoHundredths.Checked)
             {
-                tmr.Interval = 10;
+                tmrClock.Interval = 10;
             }
-            tmr.Tick += new System.EventHandler(TimerEventProcessor);
-            Thread.Sleep(3000);
+            tmrClock.Tick += new System.EventHandler(ClockTimerEventProcessor);
+            
+            // Repnum refresh timer
+            tmrRepnum.Interval = ((int)totalRepDuration);
+            tmrRepnum.Tick += new System.EventHandler(RepnumTimerEventProcessor);
 
+            // Actions: wait, start timers, BEEP, start watch
+            Thread.Sleep(3000);
             // BEEP here!
-            tmr.Start();
+            tmrClock.Start();
+            tmrRepnum.Start();
             sw.Start();
         }
 
-        private void TimerEventProcessor(Object sender, EventArgs e)
+        private void RepnumTimerEventProcessor(Object sender, EventArgs e)
+        {
+            TimeSpan ts = sw.Elapsed;
+            totalSeconds = ts.TotalSeconds;
+
+            // Rep count
+            rc = Math.Floor(totalSeconds / totalRepDuration) + 1;
+            lblRepnum.Text = rc.ToString();
+        }
+
+
+        private void ClockTimerEventProcessor(Object sender, EventArgs e)
         {
             TimeSpan ts = sw.Elapsed;
 
@@ -126,7 +143,9 @@ namespace IntervalTimer
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            sw.Reset(); 
+            sw.Reset();
+            tmrClock.Stop();
+            tmrRepnum.Stop();
             
             nudMins.Enabled = true;
             nudSecs.Enabled = true;
