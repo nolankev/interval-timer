@@ -52,7 +52,7 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(136, 330);
+            this.btnStart.Location = new System.Drawing.Point(132, 426);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 5;
@@ -62,7 +62,7 @@
             // 
             // btnStop
             // 
-            this.btnStop.Location = new System.Drawing.Point(136, 359);
+            this.btnStop.Location = new System.Drawing.Point(132, 455);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(75, 23);
             this.btnStop.TabIndex = 6;
@@ -73,7 +73,7 @@
             // lblRep
             // 
             this.lblRep.AutoSize = true;
-            this.lblRep.Location = new System.Drawing.Point(61, 152);
+            this.lblRep.Location = new System.Drawing.Point(75, 248);
             this.lblRep.Name = "lblRep";
             this.lblRep.Size = new System.Drawing.Size(30, 15);
             this.lblRep.TabIndex = 2;
@@ -81,7 +81,7 @@
             // 
             // nudMins
             // 
-            this.nudMins.Location = new System.Drawing.Point(124, 29);
+            this.nudMins.Location = new System.Drawing.Point(120, 82);
             this.nudMins.Maximum = new decimal(new int[] {
             59,
             0,
@@ -99,7 +99,7 @@
             // 
             // nudSecs
             // 
-            this.nudSecs.Location = new System.Drawing.Point(187, 29);
+            this.nudSecs.Location = new System.Drawing.Point(183, 82);
             this.nudSecs.Maximum = new decimal(new int[] {
             59,
             0,
@@ -113,7 +113,7 @@
             // lblSpecify
             // 
             this.lblSpecify.AutoSize = true;
-            this.lblSpecify.Location = new System.Drawing.Point(31, 31);
+            this.lblSpecify.Location = new System.Drawing.Point(27, 84);
             this.lblSpecify.Name = "lblSpecify";
             this.lblSpecify.Size = new System.Drawing.Size(78, 15);
             this.lblSpecify.TabIndex = 7;
@@ -123,7 +123,7 @@
             // lblNudSecs
             // 
             this.lblNudSecs.AutoSize = true;
-            this.lblNudSecs.Location = new System.Drawing.Point(187, 9);
+            this.lblNudSecs.Location = new System.Drawing.Point(183, 62);
             this.lblNudSecs.Name = "lblNudSecs";
             this.lblNudSecs.Size = new System.Drawing.Size(51, 15);
             this.lblNudSecs.TabIndex = 8;
@@ -132,7 +132,7 @@
             // lblnudMins
             // 
             this.lblnudMins.AutoSize = true;
-            this.lblnudMins.Location = new System.Drawing.Point(122, 9);
+            this.lblnudMins.Location = new System.Drawing.Point(118, 62);
             this.lblnudMins.Name = "lblnudMins";
             this.lblnudMins.Size = new System.Drawing.Size(50, 15);
             this.lblnudMins.TabIndex = 9;
@@ -144,7 +144,7 @@
             this.lblRepnum.BackColor = System.Drawing.SystemColors.Window;
             this.lblRepnum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblRepnum.Font = new System.Drawing.Font("Segoe UI", 90F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblRepnum.Location = new System.Drawing.Point(122, 152);
+            this.lblRepnum.Location = new System.Drawing.Point(118, 248);
             this.lblRepnum.Name = "lblRepnum";
             this.lblRepnum.Size = new System.Drawing.Size(134, 161);
             this.lblRepnum.TabIndex = 10;
@@ -157,7 +157,7 @@
             this.lblClock.BackColor = System.Drawing.SystemColors.Window;
             this.lblClock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblClock.Font = new System.Drawing.Font("Segoe UI", 200F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblClock.Location = new System.Drawing.Point(265, 64);
+            this.lblClock.Location = new System.Drawing.Point(261, 160);
             this.lblClock.Name = "lblClock";
             this.lblClock.Size = new System.Drawing.Size(987, 357);
             this.lblClock.TabIndex = 11;
@@ -168,7 +168,7 @@
             // 
             this.rdoTenths.AutoSize = true;
             this.rdoTenths.Checked = true;
-            this.rdoTenths.Location = new System.Drawing.Point(123, 103);
+            this.rdoTenths.Location = new System.Drawing.Point(119, 192);
             this.rdoTenths.Name = "rdoTenths";
             this.rdoTenths.Size = new System.Drawing.Size(59, 19);
             this.rdoTenths.TabIndex = 3;
@@ -180,7 +180,7 @@
             // rdoHundredths
             // 
             this.rdoHundredths.AutoSize = true;
-            this.rdoHundredths.Location = new System.Drawing.Point(123, 119);
+            this.rdoHundredths.Location = new System.Drawing.Point(120, 213);
             this.rdoHundredths.Name = "rdoHundredths";
             this.rdoHundredths.Size = new System.Drawing.Size(88, 19);
             this.rdoHundredths.TabIndex = 4;
@@ -191,15 +191,15 @@
             // lblSecondDisplay
             // 
             this.lblSecondDisplay.AutoSize = true;
-            this.lblSecondDisplay.Location = new System.Drawing.Point(15, 107);
+            this.lblSecondDisplay.Location = new System.Drawing.Point(57, 192);
             this.lblSecondDisplay.Name = "lblSecondDisplay";
-            this.lblSecondDisplay.Size = new System.Drawing.Size(94, 15);
+            this.lblSecondDisplay.Size = new System.Drawing.Size(48, 15);
             this.lblSecondDisplay.TabIndex = 14;
-            this.lblSecondDisplay.Text = "Display seconds:";
+            this.lblSecondDisplay.Text = "Display:";
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(136, 388);
+            this.btnReset.Location = new System.Drawing.Point(132, 484);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 7;
@@ -209,7 +209,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(136, 417);
+            this.btnClose.Location = new System.Drawing.Point(132, 513);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 8;
@@ -220,7 +220,7 @@
             // lblDelay
             // 
             this.lblDelay.AutoSize = true;
-            this.lblDelay.Location = new System.Drawing.Point(37, 66);
+            this.lblDelay.Location = new System.Drawing.Point(33, 139);
             this.lblDelay.Name = "lblDelay";
             this.lblDelay.Size = new System.Drawing.Size(72, 15);
             this.lblDelay.TabIndex = 15;
@@ -228,7 +228,7 @@
             // 
             // nudDelay
             // 
-            this.nudDelay.Location = new System.Drawing.Point(124, 64);
+            this.nudDelay.Location = new System.Drawing.Point(120, 137);
             this.nudDelay.Maximum = new decimal(new int[] {
             59,
             0,
@@ -248,7 +248,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 514);
+            this.ClientSize = new System.Drawing.Size(1370, 620);
             this.Controls.Add(this.nudDelay);
             this.Controls.Add(this.lblDelay);
             this.Controls.Add(this.btnClose);

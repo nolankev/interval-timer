@@ -1,5 +1,4 @@
 using System.Diagnostics;
-using System.Media;
 
 
 namespace IntervalTimer
@@ -11,6 +10,7 @@ namespace IntervalTimer
         System.Windows.Forms.Timer tmrClock = new System.Windows.Forms.Timer();
         System.Windows.Forms.Timer tmrRepnum = new System.Windows.Forms.Timer();
         string elapsedTime = "";
+        int delay;
         double totalRepDuration, totalSeconds, totalSeconds_mod;
         double m, s, millis;
         double rc;
@@ -42,10 +42,12 @@ namespace IntervalTimer
         {
             // Get inputs
             totalRepDuration = decimal.ToDouble((60*nudMins.Value) + nudSecs.Value);
+            delay = 1000*((int)nudDelay.Value);
 
             // Disable controls to prevent changes
             nudMins.Enabled = false;
             nudSecs.Enabled = false;
+            nudDelay.Enabled = false;
             rdoHundredths.Enabled = false;
             rdoTenths.Enabled = false;
             btnStart.Enabled = false;
@@ -65,10 +67,8 @@ namespace IntervalTimer
             tmrRepnum.Interval = 1000*((int)totalRepDuration);
             tmrRepnum.Tick += new System.EventHandler(RepnumTimerEventProcessor);
 
-            // Actions: wait, start timers, BEEP, start watch
-            Thread.Sleep(3000);
-            //Console.Beep();
-            //System.Media.SystemSounds.Beep.Play();
+            // Actions: apply delay, start timers, start stopwatch
+            Thread.Sleep(delay);
             tmrClock.Start();
             tmrRepnum.Start();
             sw.Start();
@@ -77,14 +77,7 @@ namespace IntervalTimer
 
         private void RepnumTimerEventProcessor(Object sender, EventArgs e)
         {
-            // Beep
-            // Starts beep on background thread
-            Thread beepThread = new Thread(new ThreadStart(PlayBeep));
-            beepThread.IsBackground = true;
-            beepThread.Start();
-            /*Console.Beep();*/
-
-            // Rep count
+            // Update rep counter at the completion of each total rep duration period
             TimeSpan ts = sw.Elapsed;
             rc = Math.Floor(ts.TotalSeconds / totalRepDuration) + 1;
             lblRepnum.Text = rc.ToString();
@@ -97,15 +90,25 @@ namespace IntervalTimer
 
             if (ts.TotalSeconds < totalRepDuration)
             {
-                elapsedTime = String.Format("{0:00}:{1:00}.{2:0}",
-                    ts.Minutes,
-                    ts.Seconds,
-                    ts.Milliseconds / 100);
+                if (rdoTenths.Checked) 
+                {
+                    elapsedTime = String.Format("{0:00}:{1:00}.{2:0}",
+                        ts.Minutes,
+                        ts.Seconds,
+                        ts.Milliseconds / 100);
+                }
+                else if (rdoHundredths.Checked)
+                {
+                    elapsedTime = String.Format("{0:00}:{1:00}.{2:0}",
+                        ts.Minutes,
+                        ts.Seconds,
+                        ts.Milliseconds / 10);
+                }
+
                 lblClock.Text = elapsedTime;
             }
             else
             {
-                //Console.Beep();
                 sw.Restart();
                 lblClock.Text = "00:00.0";
             }
@@ -173,6 +176,7 @@ namespace IntervalTimer
             
             nudMins.Enabled = true;
             nudSecs.Enabled = true;
+            nudDelay.Enabled = true;
             rdoHundredths.Enabled = true;
             rdoTenths.Enabled = true;
             btnStart.Enabled = true;
@@ -188,12 +192,6 @@ namespace IntervalTimer
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void PlayBeep()
-        {
-            // Play 1000 Hz for 1 second
-            Console.Beep(1000, 1500);
         }
     }
 }
