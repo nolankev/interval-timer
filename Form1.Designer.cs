@@ -55,7 +55,7 @@
             this.btnStart.Location = new System.Drawing.Point(1015, 18);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
-            this.btnStart.TabIndex = 5;
+            this.btnStart.TabIndex = 6;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
@@ -65,7 +65,7 @@
             this.btnStop.Location = new System.Drawing.Point(1015, 47);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(75, 23);
-            this.btnStop.TabIndex = 6;
+            this.btnStop.TabIndex = 7;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = true;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
@@ -143,10 +143,10 @@
             this.lblRepnum.AutoSize = true;
             this.lblRepnum.BackColor = System.Drawing.SystemColors.Window;
             this.lblRepnum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblRepnum.Font = new System.Drawing.Font("Segoe UI", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblRepnum.Font = new System.Drawing.Font("Segoe UI", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblRepnum.Location = new System.Drawing.Point(833, 18);
             this.lblRepnum.Name = "lblRepnum";
-            this.lblRepnum.Size = new System.Drawing.Size(76, 91);
+            this.lblRepnum.Size = new System.Drawing.Size(90, 108);
             this.lblRepnum.TabIndex = 10;
             this.lblRepnum.Text = "0";
             this.lblRepnum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -171,7 +171,7 @@
             this.rdoTenths.Location = new System.Drawing.Point(603, 26);
             this.rdoTenths.Name = "rdoTenths";
             this.rdoTenths.Size = new System.Drawing.Size(59, 19);
-            this.rdoTenths.TabIndex = 3;
+            this.rdoTenths.TabIndex = 4;
             this.rdoTenths.TabStop = true;
             this.rdoTenths.Text = "Tenths";
             this.rdoTenths.UseVisualStyleBackColor = true;
@@ -183,7 +183,7 @@
             this.rdoHundredths.Location = new System.Drawing.Point(603, 51);
             this.rdoHundredths.Name = "rdoHundredths";
             this.rdoHundredths.Size = new System.Drawing.Size(88, 19);
-            this.rdoHundredths.TabIndex = 4;
+            this.rdoHundredths.TabIndex = 5;
             this.rdoHundredths.Text = "Hundredths";
             this.rdoHundredths.UseVisualStyleBackColor = true;
             this.rdoHundredths.CheckedChanged += new System.EventHandler(this.rdoHundredths_CheckedChanged);
@@ -202,7 +202,7 @@
             this.btnReset.Location = new System.Drawing.Point(1015, 76);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 7;
+            this.btnReset.TabIndex = 8;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -212,7 +212,7 @@
             this.btnClose.Location = new System.Drawing.Point(1015, 105);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 8;
+            this.btnClose.TabIndex = 9;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -236,7 +236,7 @@
             0});
             this.nudDelay.Name = "nudDelay";
             this.nudDelay.Size = new System.Drawing.Size(57, 23);
-            this.nudDelay.TabIndex = 16;
+            this.nudDelay.TabIndex = 3;
             this.nudDelay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudDelay.Value = new decimal(new int[] {
             10,
