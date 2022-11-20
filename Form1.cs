@@ -11,9 +11,7 @@ namespace IntervalTimer
         System.Windows.Forms.Timer tmrRepnum = new System.Windows.Forms.Timer();
         string elapsedTime = "";
         int delay;
-        double totalRepDuration, totalSeconds, totalSeconds_mod;
-        double m, s, millis;
-        double rc;
+        double totalRepDuration, rc;
 
 
         public IntervalTimer()
@@ -44,14 +42,6 @@ namespace IntervalTimer
             totalRepDuration = decimal.ToDouble((60*nudMins.Value) + nudSecs.Value);
             delay = 1000*((int)nudDelay.Value);
 
-            // Disable controls to prevent changes
-            nudMins.Enabled = false;
-            nudSecs.Enabled = false;
-            nudDelay.Enabled = false;
-            rdoHundredths.Enabled = false;
-            rdoTenths.Enabled = false;
-            btnStart.Enabled = false;
-
             // Clock refresh timer: Set interval (s*1000 milliseconds) and identify timer event handler
             if (rdoTenths.Checked)
             {
@@ -66,6 +56,14 @@ namespace IntervalTimer
             // Repnum refresh timer
             tmrRepnum.Interval = 1000*((int)totalRepDuration);
             tmrRepnum.Tick += new System.EventHandler(RepnumTimerEventProcessor);
+
+            // Disable controls to prevent changes while clock is running
+            nudMins.Enabled = false;
+            nudSecs.Enabled = false;
+            nudDelay.Enabled = false;
+            rdoHundredths.Enabled = false;
+            rdoTenths.Enabled = false;
+            btnStart.Enabled = false;
 
             // Actions: apply delay, start timers, start stopwatch
             Thread.Sleep(delay);
@@ -99,7 +97,7 @@ namespace IntervalTimer
                 }
                 else if (rdoHundredths.Checked)
                 {
-                    elapsedTime = String.Format("{0:00}:{1:00}.{2:0}",
+                    elapsedTime = String.Format("{0:00}:{1:00}.{2:00}",
                         ts.Minutes,
                         ts.Seconds,
                         ts.Milliseconds / 10);
@@ -112,31 +110,6 @@ namespace IntervalTimer
                 sw.Restart();
                 lblClock.Text = "00:00.0";
             }
-
-            /*totalSeconds = ts.TotalSeconds;
-            totalSeconds_mod = totalSeconds % totalRepDuration;
-            m = Math.Floor(totalSeconds_mod / 60);
-            s = Math.Floor(totalSeconds_mod % 60);
-            millis = (totalSeconds_mod % 60) - s;
-
-            if (rdoTenths.Checked)
-            {
-                millis = Math.Round(10*millis);
-                elapsedTime = String.Format("{0:00}:{1:00}.{2:0}",
-                    m.ToString().PadLeft(2, '0'),
-                    s.ToString().PadLeft(2, '0'),
-                    millis.ToString().Substring(0, 1));
-            }
-            else if (rdoHundredths.Checked)
-            {
-                millis = Math.Round(100 * millis);
-                elapsedTime = String.Format("{0:00}:{1:00}.{2:00}",
-                    m.ToString().PadLeft(2, '0'),
-                    s.ToString().PadLeft(2, '0'),
-                    millis.ToString().PadLeft(2, '0').Substring(0, 2));
-            }
-            
-            lblClock.Text = elapsedTime;*/
         }
 
         private void rdoTenths_CheckedChanged(object sender, EventArgs e)

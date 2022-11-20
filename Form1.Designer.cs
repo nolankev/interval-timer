@@ -156,10 +156,10 @@
             this.lblClock.AutoSize = true;
             this.lblClock.BackColor = System.Drawing.SystemColors.Window;
             this.lblClock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblClock.Font = new System.Drawing.Font("Segoe UI", 200F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblClock.Font = new System.Drawing.Font("Segoe UI", 180F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblClock.Location = new System.Drawing.Point(261, 160);
             this.lblClock.Name = "lblClock";
-            this.lblClock.Size = new System.Drawing.Size(987, 357);
+            this.lblClock.Size = new System.Drawing.Size(884, 320);
             this.lblClock.TabIndex = 11;
             this.lblClock.Text = "00:00.0";
             this.lblClock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
