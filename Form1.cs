@@ -65,8 +65,9 @@ namespace IntervalTimer
             rdoTenths.Enabled = false;
             btnStart.Enabled = false;
 
-            // Actions: apply delay, start timers, start stopwatch
+            // Actions: apply delay, set rep counter display=1, start timers, start stopwatch
             Thread.Sleep(delay);
+            lblRepnum.Text = "1";
             tmrClock.Start();
             tmrRepnum.Start();
             sw.Start();
@@ -143,21 +144,24 @@ namespace IntervalTimer
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            // Stop background activity
             sw.Reset();
             tmrClock.Stop();
             tmrRepnum.Stop();
             
+            // Re-enable controls
             nudMins.Enabled = true;
             nudSecs.Enabled = true;
             nudDelay.Enabled = true;
             rdoHundredths.Enabled = true;
             rdoTenths.Enabled = true;
             btnStart.Enabled = true;
-            
             rdoTenths.Checked = true;
 
+            // Reset controls to default values
             nudMins.Value = 3;
             nudSecs.Value = 0;
+            nudDelay.Value = 10;
             lblRepnum.Text = "0";
             lblClock.Text = "00:00.0";
         }
