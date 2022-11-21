@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lLmjkhCrBZEFmir9w8mAAkA+YBhpoByPkBqnYG+JA7c8cITv59J5y5xPvm/Xx2vJJlWT76af128z1Im2foLwMg==",
+  "dgSpecHash": "W0vwJRTWaORqGYlzW3Xv820K3yj5nPsLToUZXhqv1+9t+O43NKiBqzzDGcrqLkrIUQomhwN+x2oS8erULMLsCg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kevin\\Projects\\Interval Timer\\interval-timer\\IntervalTimer.csproj",
+  "projectFilePath": "C:\\Users\\Kevin\\Projects\\interval-timer\\IntervalTimer.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

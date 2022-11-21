@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\kevin\\.nuget\\packages\\": {}
+    "C:\\Users\\Kevin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kevin\\Projects\\Interval Timer\\interval-timer\\IntervalTimer.csproj",
+      "projectUniqueName": "C:\\Users\\Kevin\\Projects\\interval-timer\\IntervalTimer.csproj",
       "projectName": "IntervalTimer",
-      "projectPath": "C:\\Users\\kevin\\Projects\\Interval Timer\\interval-timer\\IntervalTimer.csproj",
-      "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kevin\\Projects\\Interval Timer\\interval-timer\\obj\\",
+      "projectPath": "C:\\Users\\Kevin\\Projects\\interval-timer\\IntervalTimer.csproj",
+      "packagesPath": "C:\\Users\\Kevin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Kevin\\Projects\\interval-timer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

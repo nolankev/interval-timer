@@ -118,7 +118,6 @@
             this.lblSpecify.Size = new System.Drawing.Size(78, 15);
             this.lblSpecify.TabIndex = 7;
             this.lblSpecify.Text = "Rep duration:";
-            this.lblSpecify.Click += new System.EventHandler(this.lblSpecify_Click);
             // 
             // lblNudSecs
             // 

@@ -31,11 +31,6 @@ namespace IntervalTimer
             CancelButton = btnClose;
         }
 
-        private void lblSpecify_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnStart_Click(object sender, EventArgs e)
         {
             // Get inputs
