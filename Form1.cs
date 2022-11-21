@@ -33,7 +33,7 @@ namespace IntervalTimer
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            // Get inputs
+            // Get inputs from user
             totalRepDuration = decimal.ToDouble((60*nudMins.Value) + nudSecs.Value);
             delay = 1000*((int)nudDelay.Value);
 
